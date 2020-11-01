@@ -11,31 +11,15 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "tb_usuario")
-public class Usuario {
+@Table(name = "tb_rol")
+public class Rol {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "nombre_usuario")
-    private String nombreUsuario;
-    private String contrasena;
-
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "id_rol")
-    private Rol rol;
-
-    private String nombres;
-
-    @Column(name = "apellido_paterno")
-    private String apellidoPaterno;
-
-    @Column(name = "apellido_materno")
-    private String apellidoMaterno;
-
-    private String correo;
-    private String cargo;
+    private String nombre;
+    private String descripcion;
     private int estado;
 
     @Column(name = "fecha_creacion", columnDefinition = "DATE")

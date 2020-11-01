@@ -36,6 +36,12 @@ public class Donador {
     @Column(name = "direccion_almacen_defecto")
     private String direccioAlmacenDefecto;
 
+    @Column(name = "dir_alm_lat_gps")
+    private String dirAlmLatGps;
+
+    @Column(name = "dir_alm_lon_gps")
+    private String dirAlmLonGps;
+
     @Column(name = "fecha_asociacion", columnDefinition = "DATE")
     private LocalDate fechaAsociacion;
 

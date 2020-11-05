@@ -44,6 +44,7 @@ public class Donacion {
     private BigDecimal precioTotal;
 
     private int estado;
+
     @Column(name = "fecha_creacion", columnDefinition = "DATE")
     private LocalDate fechaCreacion;
 

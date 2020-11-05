@@ -4,6 +4,7 @@ import com.upc.tesis.bap.wsbap.entity.Producto;
 import com.upc.tesis.bap.wsbap.service.ProductoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -16,7 +17,12 @@ public class ProductoController {
 
     @GetMapping("productos")
     public List<Producto> findProductos() {
-        return  productoService.getProductos();
+        return productoService.getProductos();
+    }
+
+    @GetMapping("productos/{id}")
+    public Producto findProductoById(@PathVariable Integer id) {
+        return productoService.getProductoById(id);
     }
 
 }

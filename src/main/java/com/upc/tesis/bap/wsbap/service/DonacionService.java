@@ -67,7 +67,8 @@ public class DonacionService {
             donacionDetalleExistente.setProducto(donacionDetalle.getProducto());
             donacionDetalleExistente.setCantidad(donacionDetalle.getCantidad());
             donacionDetalleExistente.setPeso(donacionDetalle.getPeso());
-            donacionDetalleExistente.setUnidadMedida(donacionDetalle.getUnidadMedida());
+            donacionDetalleExistente.setUnidadMedidaCant(donacionDetalle.getUnidadMedidaCant());
+            donacionDetalleExistente.setUnidadMedidaPeso(donacionDetalle.getUnidadMedidaPeso());
             donacionDetalleExistente.setFechaVencimiento(donacionDetalle.getFechaVencimiento());
             return donacionDetalleRepository.save(donacionDetalleExistente);
         }).orElseGet(() -> {

@@ -35,13 +35,18 @@ public class DonacionDetalle {
     @Column(name = "precio_total")
     private BigDecimal precioTotal;
 
-    @Column(name = "unidad_medida")
-    private String unidadMedida;
+    @Column(name = "unidad_medida_cant")
+    private String unidadMedidaCant;
+
+    @Column(name = "unidad_medida_peso")
+    private String unidadMedidaPeso;
 
     private BigDecimal peso;
 
     @Column(name = "fecha_vencimiento", columnDefinition = "DATE")
     private LocalDate fechaVencimiento;
+
+    private int estado;
 
     @Column(name = "fecha_creacion", columnDefinition = "DATE")
     private LocalDate fechaCreacion;

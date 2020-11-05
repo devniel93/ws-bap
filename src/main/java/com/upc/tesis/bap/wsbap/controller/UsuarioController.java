@@ -22,7 +22,7 @@ public class UsuarioController {
         return usuarioService.login(username, password);
     }
 
-    @GetMapping("usuario/{id}")
+    @GetMapping("usuarios/{id}")
     public Usuario findUsuarioById(@PathVariable Integer id) {
         return usuarioService.getUsuarioById(id);
     }

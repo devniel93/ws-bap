@@ -32,6 +32,9 @@ public class Donacion {
     @Column(name = "longitud_gps")
     private String longitudGps;
 
+    @Column(name = "estado_donacion")
+    private Integer estadoDonacion;
+
     private String observacion;
 
     @Column(name = "cantidad_total")

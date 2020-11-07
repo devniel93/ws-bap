@@ -22,9 +22,14 @@ public class DonacionController {
         return donacionService.registrarDonacion(donacion);
     }
 
-    @GetMapping("donaciones")
+    @GetMapping("donaciones/all")
     public List<Donacion> obtenerDonaciones(){
         return donacionService.obtenerDonaciones();
+    }
+
+    @GetMapping("donaciones")
+    public List<Donacion> obtenerDonaciones(@RequestParam Integer donadorId, @RequestParam(required = false) Integer estadoDonacion){
+        return donacionService.obtenerDonacionesPorDonador(donadorId, estadoDonacion);
     }
 
     @GetMapping("donaciones/{id}")
@@ -42,11 +47,18 @@ public class DonacionController {
         return donacionService.eliminarDonacion(id);
     }
 
-    /** DONACION DETALLE */
+    /**
+     * DONACION DETALLE
+     * */
 
     @PostMapping("donaciones/detalles")
     public DonacionDetalle registrarDonacionDetalle(@RequestBody DonacionDetalle donacionDetalle){
         return donacionService.registrarDonacionDetalle(donacionDetalle);
+    }
+
+    @GetMapping("donaciones/detalles")
+    public List<DonacionDetalle> obtenerDetalles(@RequestParam Integer donadorId, @RequestParam(required = false) String estadosDonacion){
+        return donacionService.obtenerDetallesByDonador(donadorId, estadosDonacion);
     }
 
     @GetMapping("donaciones/{id}/detalles")

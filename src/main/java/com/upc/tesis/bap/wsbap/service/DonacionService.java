@@ -7,6 +7,7 @@ import com.upc.tesis.bap.wsbap.repository.DonacionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -49,6 +50,13 @@ public class DonacionService {
             donacionExistente.setDireccion(donacion.getDireccion());
             donacionExistente.setLatitudGps(donacion.getLatitudGps());
             donacionExistente.setLongitudGps(donacion.getLongitudGps());
+            donacionExistente.setEstadoDonacion(donacion.getEstadoDonacion());
+            donacionExistente.setObservacion(donacion.getObservacion());
+            donacionExistente.setCantidadTotal(donacion.getCantidadTotal());
+            donacionExistente.setPesoTotal(donacion.getPesoTotal());
+            donacionExistente.setEstado(donacion.getEstado());
+            donacionExistente.setFechaModificacion(LocalDate.now());
+            donacionExistente.setUsuarioModificacion(donacion.getUsuarioModificacion());
             return donacionRepository.save(donacionExistente);
         }).orElseGet(() -> {
             donacion.setId(id);
@@ -99,6 +107,9 @@ public class DonacionService {
             donacionDetalleExistente.setUnidadMedidaCant(donacionDetalle.getUnidadMedidaCant());
             donacionDetalleExistente.setUnidadMedidaPeso(donacionDetalle.getUnidadMedidaPeso());
             donacionDetalleExistente.setFechaVencimiento(donacionDetalle.getFechaVencimiento());
+            donacionDetalleExistente.setEstado(donacionDetalle.getEstado());
+            donacionDetalleExistente.setFechaModificacion(LocalDate.now());
+            donacionDetalleExistente.setUsuarioModificacion(donacionDetalle.getUsuarioModificacion());
             return donacionDetalleRepository.save(donacionDetalleExistente);
         }).orElseGet(() -> {
             donacionDetalle.setId(id);

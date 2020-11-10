@@ -57,7 +57,7 @@ public class DonacionController {
     }
 
     @GetMapping("donaciones/detalles")
-    public List<DonacionDetalle> obtenerDetalles(@RequestParam Integer donadorId, @RequestParam(required = false) String estadosDonacion){
+    public List<DonacionDetalle> obtenerDetalles(@RequestParam(required = false) Integer donadorId, @RequestParam(required = false) String estadosDonacion){
         return donacionService.obtenerDetallesByDonador(donadorId, estadosDonacion);
     }
 

@@ -11,5 +11,6 @@ public interface DonacionDetalleRepository extends JpaRepository<DonacionDetalle
     List<DonacionDetalle> findByEstadoAndDonacion_DonadorIdOrderByIdDesc(Integer estado, Integer donadorId);
     List<DonacionDetalle> findByEstadoAndDonacion_DonadorIdAndDonacion_EstadoDonacionOrderByIdDesc(Integer estado, Integer donadorId, Integer estadoDonacion);
     List<DonacionDetalle> findByEstadoAndDonacion_DonadorIdAndDonacion_EstadoDonacionIsInOrderByIdDesc(Integer estado, Integer donadorId, List<Integer> estadoDonacion);
+    List<DonacionDetalle> findByDonacionEstadoOOrderByIdDesc(Integer estado);
 
 }

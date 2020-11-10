@@ -78,6 +78,9 @@ public class DonacionService {
     }
 
     public List<DonacionDetalle> obtenerDetallesByDonador(Integer donadorId, String estadosDonacion) {
+        if(donadorId == null) {
+            return donacionDetalleRepository.findByDonacionEstadoOOrderByIdDesc(1);
+        }
         if (estadosDonacion == null) {
             return donacionDetalleRepository.findByEstadoAndDonacion_DonadorIdOrderByIdDesc(1, donadorId);
         } else {

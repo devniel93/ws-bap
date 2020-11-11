@@ -79,19 +79,28 @@ public class DonacionService {
 
     public List<DonacionDetalle> obtenerDetallesByDonador(Integer donadorId, String estadosDonacion) {
         if(donadorId == null) {
-            return donacionDetalleRepository.findByDonacionEstadoOOrderByIdDesc(1);
-        }
-        if (estadosDonacion == null) {
-            return donacionDetalleRepository.findByEstadoAndDonacion_DonadorIdOrderByIdDesc(1, donadorId);
-        } else {
-            List<String> estados = Arrays.asList(estadosDonacion.split(","));
-            List<Integer> listEstados = new ArrayList<>();
-            for (String s : estados) {
-                listEstados.add(Integer.parseInt(s));
+            if(estadosDonacion == null) {
+                return donacionDetalleRepository.findByDonacionEstadoOrderByIdDesc(1);
+            } else {
+                List<String> estados = Arrays.asList(estadosDonacion.split(","));
+                List<Integer> listEstados = new ArrayList<>();
+                for (String s : estados) {
+                    listEstados.add(Integer.parseInt(s));
+                }
+                return donacionDetalleRepository.findByDonacionEstadoAndDonacion_EstadoDonacionIsInOrderByIdDesc(1, listEstados);
             }
-            return donacionDetalleRepository.findByEstadoAndDonacion_DonadorIdAndDonacion_EstadoDonacionIsInOrderByIdDesc(1, donadorId, listEstados);
+        }else {
+            if (estadosDonacion == null) {
+                return donacionDetalleRepository.findByEstadoAndDonacion_DonadorIdOrderByIdDesc(1, donadorId);
+            } else {
+                List<String> estados = Arrays.asList(estadosDonacion.split(","));
+                List<Integer> listEstados = new ArrayList<>();
+                for (String s : estados) {
+                    listEstados.add(Integer.parseInt(s));
+                }
+                return donacionDetalleRepository.findByEstadoAndDonacion_DonadorIdAndDonacion_EstadoDonacionIsInOrderByIdDesc(1, donadorId, listEstados);
+            }
         }
-
     }
 
     public List<DonacionDetalle> obtenerDetalleById(Integer id) {

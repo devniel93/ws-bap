@@ -41,6 +41,13 @@ public class Beneficiario {
     private Integer cantidadBeneficiarios;
 
     private String direccion;
+
+    @Column(name = "dir_lat_gps")
+    private String dirLatGps;
+
+    @Column(name = "dir_lon_gps")
+    private String dirLonGps;
+
     private int estado;
 
     @Column(name = "fecha_creacion", columnDefinition = "DATE")

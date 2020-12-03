@@ -50,7 +50,7 @@ public class BeneficiarioService {
     public TmpDireccion registrarDireccion(TmpDireccion tmpDireccion){
         return tmpDireccionRepository.findById(tmpDireccion.getId()).map(tmpExistente -> {
             tmpExistente.setDirLonGps(tmpDireccion.getDirLonGps());
-            tmpExistente.setDirLatGps(tmpDireccion.getDirLonGps());
+            tmpExistente.setDirLatGps(tmpDireccion.getDirLatGps());
             tmpExistente.setRazonSocial(tmpDireccion.getRazonSocial());
             tmpExistente.setDireccion(tmpDireccion.getDireccion());
             return tmpDireccionRepository.save(tmpExistente);

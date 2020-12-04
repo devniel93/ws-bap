@@ -27,7 +27,7 @@ public class ProgramacionDonacion {
     @JoinColumn(name = "id_transporte")
     private Transporte transporte;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY, optional = true)
     @JoinColumn(name = "id_almacen")
     private Almacen almacen;
 

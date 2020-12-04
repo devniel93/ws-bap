@@ -14,7 +14,13 @@ public class TransporteService {
     private TransporteRespository transporteRespository;
 
     public List<Transporte> obtenerTransportes() {
-        return transporteRespository.findAll();
+        List<Transporte> transportes = transporteRespository.findAll();
+        if(transportes != null && transportes.size() > 0) {
+            for(int i=0; i<transportes.size(); i++) {
+                transportes.get(i).setModelo(transportes.get(i).getPlaca() + " / " + transportes.get(i).getModelo());
+            }
+        }
+        return transportes;
     }
 
 }
